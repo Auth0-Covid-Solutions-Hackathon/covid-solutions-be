@@ -1,15 +1,19 @@
-const express = require("express");
-const helmet = require("helmet");
+const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
 
-// const RecipeRouter = require("./recipes/recipe-router.js");
-// const IngredientsRouter = require("./ingredients/ingredients-router.js");
+const CompanyRouter = require("./companies/company-router")
 
 const server = express();
 
 server.use(helmet());
+server.use(cors());
 server.use(express.json());
 
-// server.use("/api/recipes", RecipeRouter);
-// server.use("/api/ingredients", IngredientsRouter);
+server.use('/company', CompanyRouter)
+
+server.get("/", (req, res) => {
+    res.send("hi hi hi")
+})
 
 module.exports = server;
