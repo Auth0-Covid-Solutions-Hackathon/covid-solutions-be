@@ -32,6 +32,12 @@ router.get("/", (req, res) => {
           else{
             event[i].home = true
           }
+          if(event[i].elder === "false"){
+            event[i].elder = false
+                  }
+          else{
+            event[i].elder = true
+          }
         }
         res.status(200).json(event);
       })
@@ -42,7 +48,7 @@ router.get("/", (req, res) => {
 
 
       router.post('/', (req, res) => {
-        Company.addcompany(req.body)
+        Company.addcompanies(req.body)
         .then(company => {
             
             if(company.capacity == 0){
@@ -73,6 +79,12 @@ router.get("/", (req, res) => {
             else{
                 res.status(200).json({...company, home: true})
             }
+            if(company.elder == 0){
+              res.status(200).json({...company, elder: false})
+          }
+          else{
+              res.status(200).json({...company, elder: true})
+          }
             res.status(200).json(event);
         })
         .catch(err => {

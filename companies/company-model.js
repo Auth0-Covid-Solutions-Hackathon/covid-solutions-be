@@ -1,21 +1,21 @@
 const db = require("../data/db-config.js");
 module.exports = {
     getCompanies,
-    addcompany
+    addcompanies
   };
 
 function getCompanies(){
-    return db("company")
+    return db("companies")
 }
 function getCompaniesById(id) {
-    return db('company')
+    return db('companies')
     .where({ id })
     .first();
  }
 
-function addcompany(company) {
-    return db('company')
-    .insert(company, 'id')
+function addcompanies(companies) {
+    return db('companies')
+    .insert(companies, 'id')
     .then(id => {
         return getCompaniesById(id[0]);
     });
