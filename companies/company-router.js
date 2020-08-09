@@ -42,7 +42,7 @@ router.get("/", (req, res) => {
         res.status(200).json(event);
       })
       .catch(err => {
-        res.status(500).json({ message: "Error fetching companies from database" });
+        res.status(400).json({ message: "Error fetching companies from database" });
       });
 
 
@@ -89,7 +89,7 @@ router.get("/", (req, res) => {
         })
         .catch(err => {
             console.log(err)
-            res.status(500).json(err)({message: "company failed to post"})
+            res.status(400).json(err)({message: "company failed to post"})
         })
         
     });
