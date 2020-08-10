@@ -11,6 +11,8 @@ The Coronavirus has affected everyone and everything since its arrival. Many gov
 
 
 Get: http://localhost:5000/company/ (retrieves list of companies)
+
+
 post: http://localhost:5000/company/ (posts a company)
 
 
